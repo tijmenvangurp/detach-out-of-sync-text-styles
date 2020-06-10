@@ -1,0 +1,24 @@
+{
+  "name" : "Detach out of sync text styles from chosen library",
+  "author" : "Tijmen van Gurp",
+  "authorEmail": "tijmenvangurp@gmail.com",
+  "commands" : [
+    {
+      "script" : "script.js",
+      "name" : "Choose library...",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
+    }
+  ],
+  "menu" : {
+    "title" : "✂️ Detach out of sync text styles from chosen library",
+    "items" : [
+      "com.bohemiancoding.sketch.runscriptidentifier"
+    ]
+  },
+  "identifier" : "com.tijmen.sketch.detach_out_of_sync_styles",
+  "version" : "1.0",
+  "description" : ""
+}
