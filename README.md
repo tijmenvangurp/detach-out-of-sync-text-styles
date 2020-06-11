@@ -1,5 +1,9 @@
 # Detach out of sync text styles
 
+ Detach out of sync text styles let's you pick a library and detach any text layer that is out of sync from that library.
+
+_Sometimes you don't want to get updates from a library on your text styles. For example when you use a text style for just the font size and line height but need the text in a different color. The plugin will only update text layers that you updated visually_
+
 ## Installation
 
 - [Download](../../releases/latest/download/detach-out-of-sync-text-styles.sketchplugin.zip) the latest release of the plugin
