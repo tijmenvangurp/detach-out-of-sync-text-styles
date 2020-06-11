@@ -1,6 +1,8 @@
-var onRun = function (context) {
-  let sketch = require("sketch");
-  let UI = require("sketch/ui");
+import sketch from 'sketch'
+// documentation: https://developer.sketchapp.com/reference/api/
+
+export default function() {
+ 
   let document = sketch.getSelectedDocument();
   let sharedTextStyles = document.sharedTextStyles;
 
@@ -11,18 +13,29 @@ var onRun = function (context) {
   let libraryNames = sharedTextStyles.map(
     (sharedTextStyle) => sharedTextStyle.getLibrary().name
   );
-   libraryNames = Array.from(new Set(libraryNames))  
 
-  UI.getInputFromUser(
-    "Which library do you want to detach out of sync text styles from?",
+   libraryNames = Array.from(new Set(libraryNames))  
+  if (libraryNames.length === 0) {
+    sketch.UI.message("This document does not have text styles from libraries 😅")
+  } else {
+    detachTextStyles(sharedTextStyles, libraryNames);
+  }
+}
+
+
+const detachTextStyles = (sharedTextStyles, libraryNames) => { 
+  sketch.UI.getInputFromUser(
+    "From which library do you want to detach?",
     {
-      type: UI.INPUT_TYPE.selection,
+      type: sketch.UI.INPUT_TYPE.selection,
       possibleValues: libraryNames,
     },
     (err, chosenLibrary) => {
+
       sharedTextStyles = sharedTextStyles.filter(
         (sharedTextStyle) => sharedTextStyle.getLibrary().name === chosenLibrary
       );
+      let detachCounter = 0;
       sharedTextStyles.forEach((sharedStyle) => {
         let layersWithSharedStyle = sharedStyle.getAllInstancesLayers();
 
@@ -36,20 +49,36 @@ var onRun = function (context) {
             log("unable to detach style");
           }
         }
-        // log(layersWithSharedStyle.map(layer => layer.name))
+
         layersWithSharedStyle.forEach((layerWithStyle) => {
           let outOfSync = layerWithStyle.style.isOutOfSyncWithSharedStyle(
             sharedStyle
           );
           if (outOfSync) {
             layerWithStyle.sharedStyle = 0;
+            detachCounter++;
           }
         });
       });
+
+      if (detachCounter === 0) {
+        sketch.UI.message(`No layers with out of sync text styles from ${chosenLibrary} 🙌`)
+      } else {
+        sketch.UI.message(`Successfully detached ${detachCounter} textLayer${getPlural(detachCounter)} from ${chosenLibrary} 🙌`)
+
+      }
       if (err) {
         // most likely the user canceled the input
         return;
       }
     }
   );
-};
+}
+
+const getPlural = (number) => {
+  if (number > 1) {
+    return "s"
+  } else {
+    return ""
+  }
+}

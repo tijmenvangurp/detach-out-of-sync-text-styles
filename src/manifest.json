@@ -5,7 +5,7 @@
     {
       "name": "Choose library...",
       "identifier": "detach-out-of-sync-text-styles.my-command-identifier",
-      "script": "__my-command.js"
+      "script": "./my-command.js"
     }
   ],
   "menu": {
@@ -13,13 +13,5 @@
     "items": [
       "detach-out-of-sync-text-styles.my-command-identifier"
     ]
-  },
-  "version": "0.1.0",
-  "description": "",
-  "name": "Detach out of sync text styles",
-  "identifier": "Detach out of sync text styles",
-  "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
-  "author": "Gurp, Tijmen van",
-  "authorEmail": "tijmen.van.gurp@philips.com"
+  }
 }

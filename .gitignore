@@ -1,0 +1,17 @@
+# build artifacts
+detach-out-of-sync-text-styles.sketchplugin
+
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# mac
+.DS_Store
+
+# WebStorm
+.idea
+
+# sketch
+# sketch-assets
+.env

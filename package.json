@@ -1,0 +1,28 @@
+{
+  "name": "detach-out-of-sync-text-styles",
+  "description": "Detach all out of sync text styles from a chosen sketch library.",
+  "version": "0.1.0",
+  "repository": {"url": "https://github.com/tijmenvangurp/detach-out-of-sync-text-styles"},
+  "engines": {
+    "sketch": ">=49.0"
+  },
+  "skpm": {
+    "name": "Detach out of sync text styles",
+    "manifest": "src/manifest.json",
+    "main": "detach-out-of-sync-text-styles.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ],
+    "sketch-assets-file": "sketch-assets/icons.sketch"
+  },
+  "scripts": {
+    "build": "skpm-build",
+    "watch": "skpm-build --watch",
+    "start": "skpm-build --watch --run",
+    "postinstall": "npm run build && skpm-link"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.7.7"
+  },
+  "author": "Gurp, Tijmen van <tijmen.van.gurp@philips.com>"
+}
