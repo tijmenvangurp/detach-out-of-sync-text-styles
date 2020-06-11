@@ -3,6 +3,7 @@
   "description": "Detach all out of sync text styles from a chosen sketch library.",
   "version": "1.0.0",
   "repository": {
+    "type": "git",
     "url": "https://github.com/tijmenvangurp/detach-out-of-sync-text-styles"
   },
   "engines": {
@@ -26,5 +27,5 @@
   "devDependencies": {
     "@skpm/builder": "^0.7.7"
   },
-  "author": "Gurp, Tijmen van <tijmen.van.gurp@philips.com>"
+  "author": "Tijmen van Gurp <tijmenvangurp@gmail.com>"
 }
