@@ -1,8 +1,10 @@
 {
   "name": "detach-out-of-sync-text-styles",
   "description": "Detach all out of sync text styles from a chosen sketch library.",
-  "version": "0.1.0",
-  "repository": {"url": "https://github.com/tijmenvangurp/detach-out-of-sync-text-styles"},
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/tijmenvangurp/detach-out-of-sync-text-styles"
+  },
   "engines": {
     "sketch": ">=49.0"
   },
